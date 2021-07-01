@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const url = "https://byabbe.se/on-this-day/7/29/events.json"
+
+const App = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      setData(data.events[0].year);
+    });
+    return (
+        {data}
+    )
+  }, []);
+  return(
+    <div>
+    <p>{data}</p>
+  </div>
+  )
 }
 
-export default App;
+export default App
+// function Price(props) {
+//   const [data, setData] = useState(null);
+//   const params = useParams();
+//   console.log("params", params);
+
+//   useEffect(() => {
+//     let URL = coindeskURL + params.currId;
+//     console.log("URL", URL);
+//     fetch(URL)
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setData(data.bpi.USD.rate);
+//       });
+//   }, [data]);
+//   return data === null ? (
+//     <div>LOADING BRO</div>
+//   ) : (
+//     <div>
+//       <h1>Current price for {params.currId} is</h1>
+//       <div className="price">USD {data}.</div>
+//     </div>
+//   );
+// }
+
+
+

@@ -14,7 +14,7 @@ const App = () => {
     return (
         {data}
     )
-  }, []);
+  }, [data]);
   return(
     <div>
     <p>{data}</p>

@@ -1,10 +1,6 @@
 import React from "react";
-import Events from "./Components/Events";
-import DatePickers from "./Components/DatePickers";
-import { useState, useEffect,createContext } from "react";
-import { Switch, Route, Link, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import Home from "./Components/Home";
 import NotFoundPage from "./Components/NotFoundPage";
 import Display from "./Components/Display";
 import DatePickers3 from "./Components/Datepickers3";

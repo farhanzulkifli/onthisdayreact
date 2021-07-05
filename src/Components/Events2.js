@@ -1,7 +1,11 @@
-    import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router";
 
-const Events = (props) => {
-    const url = `https://byabbe.se/on-this-day/${props.month}/${props.day}/deaths.json`
+
+const Events2 = () => {
+    const params = useParams();
+    console.log(params)
+    const url = `https://byabbe.se/on-this-day/${params.month}/${params.day}/events.json`
     console.log(url)
     const [data, setData] = useState([]);
   useEffect(() => {
@@ -14,7 +18,6 @@ const Events = (props) => {
 const content = data.map((content) => 
 {return <><div>{content.year}</div><div>{content.description}</div></>}
 )
-
   return(
     <div>
     {content}
@@ -22,4 +25,4 @@ const content = data.map((content) =>
   )
 }
 
-export default Events
+export default Events2

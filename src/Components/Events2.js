@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
-
 const Events2 = () => {
     const params = useParams();
     console.log(params)

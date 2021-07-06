@@ -43,8 +43,7 @@ export default function DatePickers3(props) {
         }}
         onChange={handleextract}
       />
-      <button onClick={change}> LFG
-      </button>
+      <button onClick={change}>LFG</button>
     </>
   );
 }

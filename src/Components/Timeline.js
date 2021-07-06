@@ -1,35 +1,34 @@
-import React from 'react';
-import Timeline from 'timelinejs-react';
-import Events2 from './Events2';
+import React, { useState } from "react";
+import Timeline from "timelinejs-react";
+import Events2 from "./Events2";
 
+//  const x = {"year":"2012", "description":"fun"}
+//  const z = {"start_date": {"year":x.year},"text":{"text":x.description}}
 
-const events = [
-    {
-        "media": {
-          "url": "{{ static_url }}/img/examples/houston/family.jpg",
-          "caption": "Houston's mother and Gospel singer, Cissy Houston (left) and cousin Dionne Warwick.",
-          "credit": "Cissy Houston photo:<a href='http://www.flickr.com/photos/11447043@N00/418180903/'>Tom Marcello</a><br/><a href='http://commons.wikimedia.org/wiki/File%3ADionne_Warwick_television_special_1969.JPG'>Dionne Warwick: CBS Television via Wikimedia Commons</a>"
-        },
-        "start_date": {
-          "month": "8",
-          "day": "9",
-          "year": "1963"
-        },
-        "text": {
-          "headline": "A Musical Heritage",
-          "text": "<p>Born in New Jersey on August 9th, 1963, Houston grew up surrounded by the music business. Her mother is gospel singer Cissy Houston and her cousins are Dee Dee and Dionne Warwick.</p>"
-        }
-      }
-  ];
-const title = {};
-const options = {};
+//  const transform = (x) =>{
+//     return {"start_date": {"year":x.year},"text":{"text":x.description}}
+//  }
 
-const MyComponent = () => {
-    return <Timeline
-        target={<div className="timeline"/>}
-        events={events}
-        title={title} // optional
-        options={options} // optional
-    />;
+//  console.log(transform(x))
+// console.log("x",x)
+//  console.log("z",z)
+// const events = z
+// console.log("events",events)
+
+const MyComponent = (props) => {
+  const events = [];
+  console.log("events", events);
+  const title = {};
+  const options = {};
+  console.log("props", props.data);
+  const trial = 
+    <Timeline
+      target={<div className="timeline" />}
+      events={props?.data}
+      title={title} // optional
+      options={options} // optional
+    />
+  
+  return props.data.length <= 0 ? <p>Loading!</p> : trial;
 };
-export default MyComponent
+export default MyComponent;

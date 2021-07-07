@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, } from "react";
 import { useParams } from "react-router";
 import MyComponent from "./Timeline";
+import { useHistory } from "react-router";
+
 
 const Events2 = () => {
   const params = useParams();
-  // console.log(params)
+  const history = useHistory();
   const url = `https://byabbe.se/on-this-day/${params.month}/${params.day}/events.json`;
-  // console.log(url)
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch(url)
@@ -24,7 +25,7 @@ const Events2 = () => {
   transformeddata.push(transform(item)) 
  }
  console.log("transformeddata",transformeddata)
- 
+ const homebutton = () => {history.push(`/`)}
 //  const content = data.map((content) => {
 //     return (
 //       <>
@@ -36,7 +37,8 @@ const Events2 = () => {
   return (
   <div>
     {/* {content} */}
-    <MyComponent data = {transformeddata}/>;
+    <MyComponent data = {transformeddata}/>
+    <button onClick = {homebutton}>Home</button>
     </div>
   )
 };
